@@ -182,6 +182,7 @@ SELECT data->>'subreddit' AS subreddit FROM import.rc_2010_12 WHERE data->>'subr
 ###Zadanie 2 GeoJSON
 
 Do tego zadania użyłem współrzędnych geograficznych stacji paliw pobranych z serwisu poipoint.pl w formacie csv.
+Do poprawienia formatu danych wykorzystałem [skrypt](https://github.com/bartoszblum/nosqll/blob/master/paliwa.js)
 ```sh
 time mongoimport -d Trains -c fuel --type csv --file Stacje_Paliw.csv --headerline
 ```
@@ -327,6 +328,8 @@ Dodajemy geo-indeks do kolekcji:
 ]
 ```
 
+Przekształcenie do formatu geojson za pomocą [skryptu](https://github.com/bartoszblum/nosqll/blob/master/geojson.js)<br>
+Mapa: https://github.com/bartoszblum/nosqll/blob/master/wynik1.geojson
 
 * Stacje paliw w promieniu 0.8° od Olsztyna
 ```sh
@@ -339,6 +342,8 @@ db.fuel.find({
 	}
 }).limit(5).toArray();
 ```
+
+https://github.com/bartoszblum/nosqll/blob/master/wynik2.geojson
 
 * 100 stacji paliw na obszarze pomiędzy Gdańskiem, Olsztynem i Poznaniem.
 ```sh
@@ -359,6 +364,8 @@ db.fuel.find({
 }).limit(100).toArray();
 ```
 
+Mapa: https://github.com/bartoszblum/nosqll/blob/master/wynik3.geojson
+
 * Stacje paliw na linii Warszawa-Gdańsk
 ```sh
 var line = {
@@ -373,3 +380,5 @@ db.fuel.find({
 	}
 }).limit(100).toArray();
 ```
+
+Mapa: https://github.com/bartoszblum/nosqll/blob/master/wynik4.geojson
