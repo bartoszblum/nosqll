@@ -6,6 +6,7 @@ korzystając z poniższej komendy:
 ```sh
 bunzip2 -c RC_2010-12.bz2 | mongoimport --drop --host 127.0.0.1 -d test -c reddit
 ```
+![import](img/import mongo.jpg)
 
 * pierwszy przykładowy json z kolekcji (wraz ze wszystkimi rekordami):
 ```sh
@@ -37,6 +38,7 @@ db.reddit.findOne()
 ```
 Historia Procesora:
 
+![procesor](img/procesor mongo.jpg)
 
 Procesory były obciążone równomiernie od 25 do 95 procent. 
 Pamięć była wykorzystywana od 28 do 31 procent. 
@@ -123,6 +125,7 @@ Do zaimportowania rozpakowanego pliku RC_2010-12 użyłem programu pgfutter korz
 
 Historia Procesora:
 
+![procesor](img/procesor psql.jpg)
 
 Procesory były obciążone równomiernie od 5 do 60 procent. Pamięć była wykorzystywana od 31 do 35 procent.
 
